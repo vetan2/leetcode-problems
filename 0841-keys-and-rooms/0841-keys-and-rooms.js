@@ -10,7 +10,7 @@ var canVisitAllRooms = function(rooms) {
         const [num] = queue.splice(0, 1);
         if(arr[num]) continue;
 
-        queue = [...queue, ...rooms[num]];
+        queue.push(...rooms[num]);
         arr[num] = true;
     }
 
