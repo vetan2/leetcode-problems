@@ -6,20 +6,17 @@
 var minFlipsMonoIncr = function(s) {
     const flipsToMakeAllZero = {};
     const flipsToMakeAllOne = {};
-    let temp;
+    let temp1, temp0;
 
-    temp = 0;
+    temp1 = 0;
+    temp0 = 0;
     for(let i = 0; i < s.length ; i++) {
-        if(s[i] === '1') ++temp;
-        flipsToMakeAllZero[i] = temp;
+        if(s[i] === '1') ++temp0;
+        if(s[s.length - i - 1] === '0') ++temp1;
+        flipsToMakeAllZero[i] = temp0;
+        flipsToMakeAllOne[s.length - i -1] = temp1;
     }
     flipsToMakeAllZero[-1] = 0;
-
-    temp = 0;
-    for(let i = s.length - 1; i >= 0; i--) {
-        if(s[i] === '0') ++temp;
-        flipsToMakeAllOne[i] = temp;
-    }
     flipsToMakeAllOne[s.length] = 0;
 
     let result = 987654321;
