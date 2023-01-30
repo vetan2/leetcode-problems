@@ -12,7 +12,7 @@ var tribonacci = function(n) {
     let sum = 2;
     while(head < n) {
         arr[head + 1] = sum;
-        sum = sum - arr[head - 2] + arr[head + 1];
+        sum = sum * 2 - arr[head - 2];
         head++;
     }
 
