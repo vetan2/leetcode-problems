@@ -1,0 +1,1 @@
+var countOdds=(l,h)=>Math.floor((h-l)/2)+(l%2!==0||h%2!==0)
