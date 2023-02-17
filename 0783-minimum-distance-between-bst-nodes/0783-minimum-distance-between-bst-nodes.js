@@ -17,8 +17,8 @@ var minDiffInBST = function(root) {
     const travel = (node) => {
       if(!node) return;
         
-      travel(node.left);
-           res = Math.min(res, node.val - prev);
+  travel(node.left);
+res = Math.min(res, node.val - prev);
         prev = node.val;
       travel(node.right);
     };
