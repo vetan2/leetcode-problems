@@ -11,17 +11,14 @@
  * @return {number}
  */
 var minDiffInBST = function(root) {
-    let prev = undefined;
+    let prev = -987654321;
     let res = 987654321;
 
     const travel = (node) => {
       if(!node) return;
         
-        
       travel(node.left);
-        if(prev !== undefined) {
-            res = Math.min(res, node.val - prev);
-        }
+           res = Math.min(res, node.val - prev);
         prev = node.val;
       travel(node.right);
     };
