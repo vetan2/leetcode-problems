@@ -11,22 +11,25 @@
  * @return {number}
  */
 var minDiffInBST = function(root) {
-    const arr = [];
+    let prev = undefined;
+    let res = 987654321;
 
     const travel = (node) => {
       if(!node) return;
-
+        
+        
       travel(node.left);
-      arr.push(node.val);
+        if(prev !== undefined) {
+            res = Math.min(res, node.val - prev);
+        }
+        prev = node.val;
       travel(node.right);
     };
 
     travel(root);
-
-    let res = 987654321;
-    for(let i = 0; i < arr.length - 1; i += 1) {
-      res = Math.min(res, arr[i+1] - arr[i])
-    }
+    // for(let i = 0; i < arr.length - 1; i += 1) {
+    //   res = Math.min(res, arr[i+1] - arr[i])
+    // }
     
     return res;
 };
